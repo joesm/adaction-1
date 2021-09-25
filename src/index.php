@@ -6,7 +6,8 @@ $max = intval($_GET['max']);
 $outcome = '';
 
 if (is_int($min) && is_int($max)) {
-    $outcome = FizzBuzz::series($min, $max);
+    $fb = new FizzBuzz();
+    $outcome = $fb->series($min, $max);
 }
 ?>
 <!DOCTYPE html>
@@ -103,7 +104,16 @@ if (is_int($min) && is_int($max)) {
 
       <section id="outcome-area">
       <label for="outcome">Final String:</label>
-      <textarea id="outcome" name="outcome" readonly="readonly" rows="3"><?php echo $outcome ?></textarea>
+      <textarea id="outcome" name="outcome" readonly="readonly" rows="9"><?php
+            echo "$outcome\n";
+            $stats = $fb->stats;
+            echo "fizz: $stats[fizz]\n";
+            echo "buzz: $stats[buzz]\n";
+            echo "fizzbuzz: $stats[fizzbuzz]\n";
+            echo "lucky: $stats[lucky]\n";
+            echo "integer: $stats[integer]\n";
+          ?>
+      </textarea>
       </section>
 
     </form>
