@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 
-require("src/index.php");
+require("src/FizzBuzz.php");
 
 final class FizzBuzzTest extends TestCase {
     public function testTranslate(): void {
@@ -40,5 +40,10 @@ final class FizzBuzzTest extends TestCase {
         $this->assertEquals("13", FizzBuzz::translate(13));
         $this->assertEquals("14", FizzBuzz::translate(14));
         $this->assertEquals("fizzbuzz", FizzBuzz::translate(15));
+    }
+
+    public function testSeries(): void {
+        $test_str = '-16 fizzbuzz -14 -13 fizz -11 buzz fizz -8 -7 fizz buzz -4 fizz -2 -1 0 1 2 fizz 4 buzz fizz 7 8 fizz buzz 11 fizz 13 14 fizzbuzz 16';
+        $this->assertEquals($test_str, FizzBuzz::series(-16, 16));
     }
 }
