@@ -42,6 +42,7 @@ class FizzBuzz {
         while ($min <= $max) {
             $out .= FizzBuzz::translate($min++) . ' ';
         }
+        // return string with trailing space removed
         return substr($out, 0, -1);
     }
 }
