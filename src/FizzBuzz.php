@@ -11,15 +11,18 @@ class FizzBuzz {
      *
      * @return string
      */
-    public static function translate(int $val): string {
+    public static function translate(int $val): string
+    {
         if ($val === 0) {
-            $out = "0";
+            $out = '0';
+        } else if (stripos("$val", '3') !== false) {
+            $out = 'lucky';
         } else if ($val % 15 == 0) {
-            $out = "fizzbuzz";
+            $out = 'fizzbuzz';
         } else if ($val % 5 == 0) {
-            $out = "buzz";
+            $out = 'buzz';
         } else if ($val % 3 == 0) {
-            $out = "fizz";
+            $out = 'fizz';
         } else {
             $out = "$val";
         }
